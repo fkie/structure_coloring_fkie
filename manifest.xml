@@ -1,0 +1,26 @@
+<package>
+  <description brief="structure_coloring_fkie">
+
+     structure_coloring_fkie - Find planes or cylinders in a 3D scene, bumpmap and texture will be generated.
+
+  </description>
+  <author>Bastian Gaspers</author>
+  <license>LGPL</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/structure_coloring_fkie</url>
+  <depend package="roscpp" />
+  <depend package="pcl" />
+  <depend package="opencv2" />
+  <depend package="visualization_msgs" />
+  <depend package="octreelib" />
+
+  <rosdep name="qt4"/>
+  <rosdep name="openmp"/>
+  <!--rosdep name="eigen"/-->
+  <rosdep name="opencv2"/>
+
+  <export>
+    <cpp cflags="-I${prefix}/include -fopenmp `pkg-config --cflags QtGui QtCore eigen3 opencv2`" lflags="-Wl,-rpath,${prefix}/lib -L${prefix}/lib -lstructureColoring -lstructureGL -lgomp `pkg-config --libs QtGui QtCore opencv2`" />
+  </export>
+
+</package>
